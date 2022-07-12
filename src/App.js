@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "./App.css";
 import Filter from "./Filter";
 import Movie from "./Movie";
@@ -9,18 +9,18 @@ function App() {
   const [filtered, setFiltered] = useState([]);
   const [activeGenre, setActiveGenre] = useState(0);
 
-  useEffect(() => {
-    fetchPopular();
-  }, []);
-
-  const fetchPopular = async () => {
+  const fetchPopular = useCallback(async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=05aa490e85167baf705cb34e0602f814&language=en-US&page=1"
     );
     const movies = await data.json();
     setPopular(movies.results);
     setFiltered(movies.results);
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchPopular();
+  }, [fetchPopular]);
 
   return (
     <div className="App">
