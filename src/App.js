@@ -3,12 +3,14 @@ import "./App.css";
 import Filter from "./Filter";
 import Movie from "./Movie";
 import { motion, AnimatePresence } from "framer-motion";
+import Search from "./search";
 
 function App() {
   const [popular, setPopular] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [activeGenre, setActiveGenre] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [searched, setSearched] = useState([]);
 
   const fetchPopular = useCallback(async () => {
     setIsLoading(true);
@@ -29,6 +31,7 @@ function App() {
 
   return (
     <div className="App">
+      <Search filtered={filtered} setSearched={setSearched} />
       <Filter
         popular={popular}
         setFiltered={setFiltered}
