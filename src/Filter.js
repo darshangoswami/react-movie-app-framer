@@ -10,6 +10,7 @@ const Filter = ({ setActiveGenre, activeGenre, setFiltered, popular }) => {
       movie.genre_ids.includes(activeGenre)
     );
     setFiltered(filtered);
+    // eslint-disable-next-line
   }, [activeGenre]);
 
   return (
