@@ -5,15 +5,19 @@ const Search = ({ filtered, setSearched }) => {
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
+    if (searchInput === "") {
+      setSearched(filtered);
+      return;
+    }
+
     const searched = filtered.filter((movie) =>
-      movie.title.includes(searchInput)
+      movie.title.toLowerCase().includes(searchInput)
     );
     setSearched(searched);
   }, [searchInput]);
 
   const searchOnChangeHandler = (e) => {
     setSearchInput(e.target.value);
-    console.log(searchInput);
   };
 
   return (
