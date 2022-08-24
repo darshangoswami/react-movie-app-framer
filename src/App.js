@@ -29,6 +29,8 @@ function App() {
     fetchPopular();
   }, [fetchPopular]);
 
+  console.log(searched);
+
   return (
     <div className="App">
       <Search filtered={filtered} setSearched={setSearched} />
@@ -40,11 +42,11 @@ function App() {
       />
       <motion.div layout className="popular-movies">
         <AnimatePresence>
-          {!isLoading && filtered.length > 0} &&
-          {filtered.map((movie) => {
+          {!isLoading && searched.length > 0} &&
+          {searched.map((movie) => {
             return <Movie key={movie.id} movie={movie} />;
           })}
-          {!isLoading && filtered.length === 0 && <p>No movies found.</p>}
+          {!isLoading && searched.length === 0 && <p>No movies found.</p>}
           {isLoading && <p>Loading...</p>}
         </AnimatePresence>
       </motion.div>

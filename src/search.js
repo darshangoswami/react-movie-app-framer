@@ -8,12 +8,11 @@ const Search = ({ filtered, setSearched }) => {
       setSearched(filtered);
       return;
     }
-
     const searched = filtered.filter((movie) =>
       movie.title.toLowerCase().includes(searchInput)
     );
     setSearched(searched);
-  }, [searchInput]);
+  }, [searchInput, filtered]);
 
   const searchOnChangeHandler = (e) => {
     setSearchInput(e.target.value);
