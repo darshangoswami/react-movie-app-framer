@@ -4,6 +4,8 @@ const Search = ({ filtered, setSearched }) => {
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
+    // TODO: Add setTimeout
+    console.log("Effect runs");
     if (searchInput === "") {
       setSearched(filtered);
       return;

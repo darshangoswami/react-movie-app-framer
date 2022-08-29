@@ -29,8 +29,6 @@ function App() {
     fetchPopular();
   }, [fetchPopular]);
 
-  console.log(searched);
-
   return (
     <div className="App">
       <Search filtered={filtered} setSearched={setSearched} />

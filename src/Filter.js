@@ -11,7 +11,7 @@ const Filter = ({ setActiveGenre, activeGenre, setFiltered, popular }) => {
     );
     setFiltered(filtered);
     // eslint-disable-next-line
-  }, [activeGenre]);
+  }, [activeGenre, popular]);
 
   return (
     <div className="filter-container">
