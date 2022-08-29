@@ -4,16 +4,21 @@ const Search = ({ filtered, setSearched }) => {
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
-    // TODO: Add setTimeout
-    console.log("Effect runs");
-    if (searchInput === "") {
-      setSearched(filtered);
-      return;
-    }
-    const searched = filtered.filter((movie) =>
-      movie.title.toLowerCase().includes(searchInput)
-    );
-    setSearched(searched);
+    const identifier = setTimeout(() => {
+      if (searchInput === "") {
+        setSearched(filtered);
+        return;
+      }
+      const searched = filtered.filter((movie) =>
+        movie.title.toLowerCase().includes(searchInput)
+      );
+      setSearched(searched);
+    }, 700);
+
+    return () => {
+      clearTimeout(identifier);
+    };
+    // eslint-disable-next-line
   }, [searchInput, filtered]);
 
   const searchOnChangeHandler = (e) => {
