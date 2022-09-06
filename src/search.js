@@ -27,11 +27,11 @@ const Search = ({ filtered, setSearched }) => {
 
   return (
     <form action="">
-      <label htmlFor="search">Search</label>
       <input
         type="text"
         id="name"
         name="search"
+        placeholder="Search"
         onChange={searchOnChangeHandler}
       />
     </form>

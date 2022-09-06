@@ -14,13 +14,17 @@ img {
 }
 
 h2 {
-  font-size: .8rem;
+  font-size: 0.8rem;
+}
+
+.filter-container {
+  margin-bottom: 15px;
 }
 
 .filter-container button {
   margin-right: 2rem;
   min-width: 5rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border: none;
   background: white;
   color: rgb(65, 98, 168);
@@ -31,6 +35,22 @@ h2 {
 }
 
 button.active {
-  background: rgb(65, 98, 168);;
+  background: rgb(65, 98, 168);
   color: white;
+}
+
+form {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input {
+  width: 70%;
+  height: 30px;
+  border: 2.5px solid rgb(54, 54, 54);
+  border-radius: 7px;
+  font-size: 1.2rem;
+  padding: 10px;
 }
